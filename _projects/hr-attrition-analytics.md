@@ -2,7 +2,7 @@
 layout: page
 title: HR Analytics - Uncovering the Drivers of Employee Attrition
 description: Excel, VBA and Power BI project diagnosing and modeling employee turnover
-img: assets/img/hr-attrition-thumbnail.png
+img: assets/img/hr-powerbi-dashboard-final1.png
 importance: 2
 category: work
 related_publications: false
