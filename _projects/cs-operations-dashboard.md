@@ -2,7 +2,7 @@
 layout: page
 title: Customer Success Operations & Performance Dashboard
 description: End-to-end BI pipeline (SQL + Power BI) tracking customer health, revenue, and churn risk
-img: assets/img/cs-dashboard-thumbnail.png
+img: assets/img/cs-dashboard-preview.png
 importance: 1
 category: work
 related_publications: false
