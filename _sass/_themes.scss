@@ -1,0 +1,195 @@
+/*******************************************************************************
+ * Themes — custom palette override for Samuel Rojas' portfolio
+ * Primary: #051C2C (deep navy) · Accent: #B08D57 (brass/gold)
+ ******************************************************************************/
+
+:root {
+  color-scheme: light;
+  --global-bg-color: #ffffff;
+  --global-code-bg-color: #f2f4f6;
+  --global-text-color: #14212c;
+  --global-text-color-light: #5b6b78;
+  --global-theme-color: #b08d57;
+  --global-hover-color: #8c6d3f;
+  --global-hover-text-color: #ffffff;
+  --global-footer-bg-color: #051c2c;
+  --global-footer-text-color: #c7d0d9;
+  --global-footer-link-color: #ffffff;
+  --global-distill-app-color: #5b6b78;
+  --global-divider-color: rgba(5, 28, 44, 0.12);
+  --global-card-bg-color: #ffffff;
+  --global-highlight-color: #a4402e;
+  --global-back-to-top-bg-color: rgba(5, 28, 44, 0.78);
+  --global-back-to-top-text-color: #ffffff;
+  --global-newsletter-bg-color: #f2f4f6;
+  --global-newsletter-text-color: #051c2c;
+
+  --global-tip-block: #42b983;
+  --global-tip-block-bg: #e2f5ec;
+  --global-tip-block-text: #215d42;
+  --global-tip-block-title: #359469;
+  --global-warning-block: #e7c000;
+  --global-warning-block-bg: #fff8d8;
+  --global-warning-block-text: #6b5900;
+  --global-warning-block-title: #b29400;
+  --global-danger-block: #c00;
+  --global-danger-block-bg: #ffe0e0;
+  --global-danger-block-text: #600;
+  --global-danger-block-title: #c00;
+
+  #light-toggle-system {
+    display: inline-block;
+  }
+
+  #light-toggle-dark {
+    display: none;
+  }
+
+  #light-toggle-light {
+    display: none;
+  }
+
+  .only-light {
+    display: block;
+  }
+
+  .only-dark {
+    display: none;
+  }
+
+  #back-to-top {
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+    bottom: 2rem;
+    right: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    z-index: 1060;
+  }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --global-bg-color: #071822;
+  --global-code-bg-color: #0d2534;
+  --global-text-color: #e7ecf0;
+  --global-text-color-light: #9fb0bd;
+  --global-theme-color: #d9b672;
+  --global-hover-color: #e9c98c;
+  --global-hover-text-color: #051c2c;
+  --global-footer-bg-color: #04121c;
+  --global-footer-text-color: #9fb0bd;
+  --global-footer-link-color: #ffffff;
+  --global-distill-app-color: #9fb0bd;
+  --global-divider-color: rgba(255, 255, 255, 0.12);
+  --global-card-bg-color: #0e2635;
+  --global-back-to-top-bg-color: rgba(255, 255, 255, 0.16);
+  --global-back-to-top-text-color: #ffffff;
+  --global-newsletter-bg-color: #0e2635;
+  --global-newsletter-text-color: #e7ecf0;
+
+  --global-tip-block: #42b983;
+  --global-tip-block-bg: #215d42;
+  --global-tip-block-text: #beffe2;
+  --global-tip-block-title: #e2f5ec;
+  --global-warning-block: #e7c000;
+  --global-warning-block-bg: #6b5900;
+  --global-warning-block-text: #fff2af;
+  --global-warning-block-title: #fff8d8;
+  --global-danger-block: #c00;
+  --global-danger-block-bg: #600;
+  --global-danger-block-text: #ffb9b9;
+  --global-danger-block-title: #ffe0e0;
+
+  .only-light {
+    display: none;
+  }
+
+  .only-dark {
+    display: block;
+  }
+}
+
+html[data-theme-setting="dark"] {
+  #light-toggle-system {
+    display: none;
+  }
+
+  #light-toggle-dark {
+    display: inline-block;
+  }
+
+  #light-toggle-light {
+    display: none;
+  }
+
+  #back-to-top {
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+  }
+}
+
+html[data-theme-setting="light"] {
+  #light-toggle-system {
+    display: none;
+  }
+
+  #light-toggle-dark {
+    display: none;
+  }
+
+  #light-toggle-light {
+    display: inline-block;
+  }
+}
+
+.fa-half-sun-moon {
+  position: relative;
+  display: inline-block;
+
+  --fa-font: var(--fa-font-solid);
+  speak: none;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  width: 1em;
+  height: 1em;
+}
+
+.fa-half-sun-moon::before,
+.fa-half-sun-moon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: -0.5px;
+  bottom: -0.5px;
+  text-align: center;
+  line-height: 1em;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  font: var(--fa-font);
+}
+
+.fa-half-sun-moon::before {
+  content: "\f111";
+  color: var(--global-text-color);
+  clip-path: polygon(0 0, calc(50% - 0.5px) 0, calc(50% - 0.5px) 100%, 0 100%);
+}
+
+.fa-half-sun-moon::after {
+  content: "\f185";
+  color: var(--global-text-color);
+  clip-path: polygon(calc(50% + 0.5px) 0, 100% 0, 100% 100%, calc(50% + 0.5px) 100%);
+  right: -1.5px;
+  transform: translateX(-1px);
+}
+
+#light-toggle:hover .fa-half-sun-moon::before {
+  color: var(--global-theme-color);
+}
+
+#light-toggle:hover .fa-half-sun-moon::after {
+  color: var(--global-theme-color);
+}
