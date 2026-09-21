@@ -15,12 +15,16 @@
 
 @layer base {
   :root {
-    --max-content-width: 930px;
+    --max-content-width: 960px;
+    --font-heading:
+      "Sora", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body:
+      "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   }
 
   html {
     font-size: 16px;
-    font-family: sans-serif;
+    font-family: var(--font-body);
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
   }
@@ -33,11 +37,12 @@
 
   body {
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.5;
+    font-weight: 400;
+    line-height: 1.6;
     text-align: left;
+    letter-spacing: 0.1px;
     @apply text-text bg-background;
   }
 
@@ -49,34 +54,38 @@
   h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-family: inherit;
-    font-weight: 300;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.015em;
     line-height: 1.2;
     color: inherit;
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
+    font-weight: 700;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
 
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   h5 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 
   h6 {
     font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   p {
@@ -130,6 +139,7 @@
     color: var(--global-theme-color);
     text-decoration: none;
     background-color: transparent;
+    transition: color 0.15s ease-in-out;
   }
 
   a:hover {
@@ -348,7 +358,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+    backdrop-filter: saturate(180%) blur(6px);
   }
 
   .navbar > .container {
@@ -362,7 +373,10 @@
     margin-right: 1rem;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
-    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 1.3rem;
     line-height: inherit;
     white-space: nowrap;
   }
@@ -384,6 +398,8 @@
     display: block;
     padding-right: 0;
     padding-left: 0;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 
   .nav-item {
@@ -554,17 +570,27 @@
     align-items: center;
   }
 
+  /* ---- Portfolio-oriented project cards ---- */
   .card {
     @apply bg-card;
-    border-radius: 0.25rem;
+    border-radius: 0.85rem;
     background-clip: border-box;
     display: flex;
     flex-direction: column;
     min-width: 0;
-    border: 0;
+    border: 1px solid var(--global-divider-color);
+    overflow: hidden;
     box-shadow:
-      0 2px 5px 0 rgba(0, 0, 0, 0.16),
-      0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      0 1px 2px rgba(5, 28, 44, 0.04),
+      0 6px 18px rgba(5, 28, 44, 0.06);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: color-mix(in srgb, var(--global-theme-color) 45%, var(--global-divider-color));
   }
 
   .card-body {
@@ -573,17 +599,19 @@
   }
 
   .card-title {
-    margin-bottom: 0.75rem;
-    font-size: 2rem;
-    line-height: 1.2;
-    font-weight: 400;
+    margin-bottom: 0.6rem;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--global-text-color);
   }
 
   .card-text {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.94rem;
+    line-height: 1.55;
     font-weight: 400;
-    color: #747373;
+    color: var(--global-text-color-light);
   }
 
   .card-img,
@@ -592,8 +620,10 @@
   }
 
   .card-img-top {
-    border-top-left-radius: calc(0.25rem - 1px);
-    border-top-right-radius: calc(0.25rem - 1px);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-top-left-radius: calc(0.85rem - 1px);
+    border-top-right-radius: calc(0.85rem - 1px);
   }
 
   .img-fluid {
@@ -606,12 +636,29 @@
   }
 
   .hoverable:hover {
-    @apply shadow-md;
+    transform: translateY(-6px);
+    box-shadow:
+      0 10px 15px rgba(5, 28, 44, 0.08),
+      0 4px 6px rgba(5, 28, 44, 0.06);
+  }
+
+  /* Project category headers on the projects page */
+  .category {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.95rem;
+    color: var(--global-theme-color);
+    border-bottom: 2px solid var(--global-theme-color);
+    padding-bottom: 0.35rem;
+    margin-bottom: 1.5rem;
   }
 
   .btn {
     display: inline-block;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--global-text-color);
     text-align: center;
     white-space: nowrap;
@@ -620,10 +667,10 @@
     margin: 0.375rem;
     background-color: transparent;
     border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.95rem;
     line-height: 1.5;
-    border-radius: 0.125rem;
+    border-radius: 999px;
     text-decoration: none;
     transition:
       color 0.15s ease-in-out,
@@ -642,16 +689,18 @@
   }
 
   .btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.64rem;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
     line-height: 1.5;
-    border-radius: 0.125rem;
+    border-radius: 999px;
   }
 
   .btn-outline-primary {
     border-color: var(--global-theme-color);
     color: var(--global-theme-color);
     background: transparent;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
 
   .btn-outline-primary:hover {
@@ -665,8 +714,8 @@
 
   .z-depth-1 {
     box-shadow:
-      0 2px 5px 0 rgba(0, 0, 0, 0.16),
-      0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      0 2px 5px 0 rgba(5, 28, 44, 0.1),
+      0 2px 10px 0 rgba(5, 28, 44, 0.08);
   }
 
   .table {
@@ -718,14 +767,15 @@
 
   .badge {
     display: inline-block;
-    padding: 0.25em 0.4em;
-    font-size: 75%;
+    padding: 0.3em 0.6em;
+    font-size: 72%;
     font-weight: 700;
+    letter-spacing: 0.02em;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: 0.25rem;
+    border-radius: 999px;
   }
 
   .badge:empty {
@@ -837,17 +887,12 @@
     border: 0;
   }
 
-  /* Bootstrap v4 did not define a global `.hidden` utility; publication toggles depend on
-     block layout + max-height transitions from `_sass/_publications.scss`. */
   .publications .hidden {
     display: block;
   }
 }
 
 @layer utilities {
-  /* Override Tailwind's built-in `.collapse { visibility: collapse; }` utility.
-     al-folio uses `.collapse` for navbar/content toggles and expects visible text
-     when the element is displayed. */
   .collapse,
   .collapse.show {
     visibility: visible;
