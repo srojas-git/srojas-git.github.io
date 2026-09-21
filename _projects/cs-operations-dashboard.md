@@ -24,7 +24,7 @@ To support data-driven decision-making, CS leadership needed to answer critical 
 ### 1. Data Engineering with SQL (Database Logic)
 I developed custom SQL Views to handle data cleaning and pre-aggregation. This approach ensures the Power BI model remains lightweight and scalable by shifting heavy computations to the database layer (PostgreSQL/Snowflake logic).
 
-<img src="/assets/img/sql-execution-query.png" alt="SQL Query Execution in pgAdmin" class="img-fluid rounded mx-auto d-block" style="max-width: 60%;">
+<img src="/assets/img/sql-execution-query.png" alt="SQL Query Execution in pgAdmin" class="img-fluid rounded mx-auto d-block" style="max-width: 65%;">
 
 ```sql
 CREATE OR REPLACE VIEW customer_revenue_metrics AS
