@@ -25,7 +25,7 @@ The company was losing valuable employees without knowing why. The raw dataset i
 ### 1. Data Structuring & Cleaning (Power Query)
 I parsed the raw, unstructured CSV into a proper table, corrected data types column by column, and standardized inconsistent categorical values (typos, mixed capitalization, synonyms) using Trim, Capitalize Each Word, and targeted Replace Values steps — diagnosing issues through Power Query's Column Profile feature rather than relying on prior knowledge of the errors.
 
-<img src="/assets/img/hr-power-query-cleaning.png" alt="Power Query data cleaning and column profiling" class="img-fluid rounded mx-auto d-block" style="max-width: 60%;">
+<img src="/assets/img/hr-power-query-cleaning.png" alt="Power Query data cleaning and column profiling" class="img-fluid rounded mx-auto d-block" style="max-width: 70%;">
 
 ### 2. Strategic Handling of Nulls & Errors
 Rather than a blanket deletion (which would have cost ~20% of the dataset), I applied three targeted strategies:
